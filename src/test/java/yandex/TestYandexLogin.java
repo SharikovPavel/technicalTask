@@ -1,6 +1,6 @@
 package yandex;
 
-import HelperClasses.BaseTest;
+import helperClasses.BaseTest;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import ru.yandex.qatools.allure.annotations.Title;

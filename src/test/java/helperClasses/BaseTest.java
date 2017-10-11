@@ -1,4 +1,4 @@
-package HelperClasses;
+package helperClasses;
 
 
 import org.junit.After;
