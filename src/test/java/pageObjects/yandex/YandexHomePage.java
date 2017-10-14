@@ -1,5 +1,6 @@
-package yandex.pageObjects;
+package pageObjects.yandex;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,8 @@ public class YandexHomePage {
     @FindBy(xpath = "//a[@href='https://mail.yandex.ru']")
     private WebElement buttonMail;
 
+    private By userPicture = By.ByClassName.xpath("//div[@class='mail-User-Picture js-user-picture']");
+
     public YandexHomePage(WebDriver driver) {
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//title['Яндекс']")));
@@ -31,5 +34,10 @@ public class YandexHomePage {
     public void clickButtonMail() {
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(buttonMail)).click();
+    }
+
+    public void checkLogoutOfMail() {
+        Assert.assertTrue(new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.invisibilityOfElementLocated(userPicture)));
     }
 }
